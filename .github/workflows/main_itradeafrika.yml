@@ -62,4 +62,16 @@ jobs:
           app-name: 'itradeafrika'
           slot-name: 'Production'
           package: .
+          jobs:
+  - job: Build
+    steps:
+      - task: UseNode@1
+        inputs:
+          versionSpec: '14.x'
+      - checkout: self
+      - script: |
+          cd carbon-exchange/carbon-exchange-backend
+          npm install
+        displayName: 'Install Backend Dependencies'
+
           
